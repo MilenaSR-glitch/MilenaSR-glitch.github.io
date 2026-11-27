@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Química 3 | Cinética e Equilíbrio — IFMS</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #fffdf5;
+            color: #222;
+            line-height: 1.6;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #f4b400;
+            color: #1f1a00;
+            padding: 25px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 1.9rem;
+            margin-bottom: 5px;
+        }
+
+        /* Menu de Abas */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            background-color: #fff;
+            border: 2px solid #f4b400;
+            color: #333;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background-color: #f4b400;
+            color: #1f1a00;
+        }
+
+        /* Conteúdo das Seções */
+        .secao {
+            display: none;
+            background-color: #ffffff;
+            border: 1px solid #e6d8a8;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .secao.ativa {
+            display: block;
+        }
+
+        h2 {
+            color: #9e6b00;
+            border-bottom: 2px solid #f4b400;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #7a5200;
+            margin: 20px 0 10px;
+        }
+
+        p, ul, ol {
+            margin-bottom: 14px;
+        }
+
+        ul, ol {
+            margin-left: 22px;
+        }
+
+        /* Caixas de Fórmula e Destaques */
+        .destaque {
+            background-color: #fff8dc;
+            border-left: 4px solid #f4b400;
+            padding: 12px 15px;
+            margin: 15px 0;
+        }
+
+        /* Tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #e6d8a8;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4b400;
+            color: #1f1a00;
+        }
+
+        /* Vídeos */
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .video-box {
+            flex: 1 1 300px;
+            background: #fffdf5;
+            border: 1px solid #e6d8a8;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .video-box iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        /* Questões ENEM */
+        .questao {
+            border: 1px solid #e6d8a8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .questao img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Simulador */
+        .simulador {
+            width: 100%;
+            height: 550px;
+            border: 1px solid #e6d8a8;
+            border-radius: 8px;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #fff8dc;
+            border: 1px solid #e6d8a8;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Físico-Química na Prática</h1>
+            <p>IFMS Campus Ponta Porã • Química 3 • Cinética e Equilíbrio Químico</p>
+        </header>
+
+        <!-- NAVEGAÇÃO -->
+        <nav id="menu-abas">
+            <button type="button" class="tab-btn active" data-alvo="apresentacao">Apresentação</button>
+            <button type="button" class="tab-btn" data-alvo="cinetica">Cinética Química</button>
+            <button type="button" class="tab-btn" data-alvo="equilibrio">Equilíbrio Químico</button>
+            <button type="button" class="tab-btn" data-alvo="equilibrioIonico">Equilíbrio Iônico (pH)</button>
+            <button type="button" class="tab-btn" data-alvo="experimentos">Experimentos (Vídeos)</button>
+            <button type="button" class="tab-btn" data-alvo="enem">De Olho no ENEM</button>
+            <button type="button" class="tab-btn" data-alvo="simulador">Simulador PhET</button>
+        </nav>
+
+        <!-- ABA: APRESENTAÇÃO -->
+        <section id="apresentacao" class="secao ativa">
+            <h2>Apresentação do Projeto</h2>
+            <p>Este site foi desenvolvido para a unidade curricular de <strong>Química 3</strong> (Cursos Técnicos em Agricultura e Informática — IFMS Campus Ponta Porã), sob orientação da professora <strong>Jaqueline Appolari</strong>.</p>
+            <p>O objetivo é explicar de maneira simples e visual os conceitos de Cinética Química, Equilíbrio Químico e Equilíbrio Iônico da Água.</p>
+            
+            <div class="destaque">
+                <strong>Integrantes do Grupo:</strong><br>
+                • Milena Silva Ruiz<br>
+                • Thaiany Herrera da Silva <br>
+            </div>
+        </section>
+
+        <!-- ABA: CINÉTICA QUÍMICA -->
+        <section id="cinetica" class="secao">
+            <h2>Cinética Química</h2>
+            <p>A <strong>Cinética Química</strong> estuda a velocidade das reações químicas e os fatores que a influenciam. Para ocorrer reação, as moléculas precisam colidir com orientação adequada e energia mínima (<strong>Energia de Ativação</strong>).</p>
+
+            <div class="destaque">
+                <strong>Velocidade Média:</strong> Vm = |Δ[Substância]| / Δt<br>
+                <strong>Lei da Velocidade:</strong> v = k · [A]<sup>m</sup> · [B]<sup>n</sup>
+            </div>
+
+            <h3>Fatores que alteram a velocidade das reações</h3>
+            <ol>
+                <li><strong>Temperatura:</strong> O aumento da temperatura eleva a energia cinética das moléculas, gerando mais colisões efetivas.</li>
+                <li><strong>Superfície de Contato:</strong> Quanto mais triturado o reagente sólido, maior a área de contato e mais rápida a reação.</li>
+                <li><strong>Concentração:</strong> Maior concentração significa mais partículas por volume, aumentando a frequência dos choques.</li>
+                <li><strong>Catalisadores:</strong> Aceleram a reação oferecendo um caminho alternativo com menor energia de ativação, sem serem consumidos.</li>
+            </ol>
+        </section>
+
+        <!-- ABA: EQUILÍBRIO QUÍMICO -->
+        <section id="equilibrio" class="secao">
+            <h2>Equilíbrio Químico</h2>
+            <p>O equilíbrio químico acontece em <strong>reações reversíveis</strong> quando a velocidade da reação direta se iguala à velocidade da reação inversa (<strong>V<sub>direta</sub> = V<sub>inversa</sub></strong>), mantendo constantes as concentrações de reagentes e produtos.</p>
+
+            <div class="destaque">
+                <strong>Constante de Equilíbrio (Kc):</strong> Kc = [Produtos]<sup>coeficientes</sup> / [Reagentes]<sup>coeficientes</sup>
+            </div>
+
+            <h3>Princípio de Le Chatelier</h3>
+            <p>Quando um sistema em equilíbrio sofre uma perturbação externa, ele desloca o equilíbrio para minimizar essa alteração:</p>
+            <ul>
+                <li><strong>Concentração:</strong> Adicionar uma substância desloca para o lado oposto; retirar desloca para o mesmo lado.</li>
+                <li><strong>Pressão:</strong> O aumento da pressão favorece o lado com menor volume gasoso (menor número de mols de gás).</li>
+                <li><strong>Temperatura:</strong> O aumento da temperatura favorece a reação endotérmica (que absorve calor).</li>
+            </ul>
+        </section>
+
+        <!-- ABA: EQUILÍBRIO IÔNICO -->
+        <section id="equilibrioIonico" class="secao">
+            <h2>Equilíbrio Iônico da Água e Escala de pH</h2>
+            <p>A água pura sofre autoionização: <strong>H<sub>2</sub>O(l) &rightleftharpoons; H<sup>+</sup>(aq) + OH<sup>-</sup>(aq)</strong>. A 25 °C, o produto iônico é <strong>Kw = [H<sup>+</sup>]·[OH<sup>-</sup>] = 10<sup>-14</sup></strong>.</p>
+
+            <div class="destaque">
+                pH = -log[H<sup>+</sup>] &nbsp;|&nbsp; pOH = -log[OH<sup>-</sup>] &nbsp;|&nbsp; pH + pOH = 14
+            </div>
+
+            <h3>Substâncias do Cotidiano</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Substância</th>
+                        <th>pH Aproximado</th>
+                        <th>Classificação</th>
+                        <th>Significado Químico na Prática</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Suco de Limão</td>
+                        <td>~ 2,0</td>
+                        <td>Ácido</td>
+                        <td>Alta concentração de íons H<sup>+</sup> ([H<sup>+</sup>] &gt; 10<sup>-7</sup> mol/L) devido ao ácido cítrico.</td>
+                    </tr>
+                    <tr>
+                        <td>Cosméticos (Shampoo)</td>
+                        <td>~ 5,0</td>
+                        <td>Levemente Ácido</td>
+                        <td>Mantém o pH natural da pele e sela as cutículas do cabelo.</td>
+                    </tr>
+                    <tr>
+                        <td>Leite</td>
+                        <td>~ 6,5</td>
+                        <td>Levemente Ácido</td>
+                        <td>Possui leve excesso de H<sup>+</sup> por conta do ácido láctico e caseína.</td>
+                    </tr>
+                    <tr>
+                        <td>Água Pura</td>
+                        <td>7,0</td>
+                        <td>Neutra</td>
+                        <td>Quantidades iguais de íons: [H<sup>+</sup>] = [OH<sup>-</sup>] = 10<sup>-7</sup> mol/L.</td>
+                    </tr>
+                    <tr>
+                        <td>Produtos de Limpeza (Sabão)</td>
+                        <td>~ 10,0</td>
+                        <td>Básico (Alcalino)</td>
+                        <td>Predomínio de íons OH<sup>-</sup>, auxiliando na quebra de gorduras (saponificação).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ABA: EXPERIMENTOS -->
+        <section id="experimentos" class="secao">
+            <h2>Experimentos Práticos (Vídeos)</h2>
+            <p>Vídeos produzidos pela equipe demonstrando os fenômenos estudados:</p>
+
+            <div class="videos">
+                <div class="video-box">
+                    <h3>Vídeo 1: Experimento Prático</h3>
+                    <p><strong>Tema (Cinética Química):</strong> Influência da superfície de contato e temperatura na velocidade da reação.</p>
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/Fen9SzQLxA8"
+                        title="YouTube Video"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+                    
+                </div>
+
+                <div class="video-box">
+                    <h3>Vídeo 2: Observação no Cotidiano</h3>
+                    <p><strong>Tema (Equilíbrio Iônico / pH):</strong> Indicador ácido-base natural (repolho roxo) em substâncias caseiras.</p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/vGSSEZc3YZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABA: DE OLHO NO ENEM -->
+        <section id="enem" class="secao">
+            <h2>De Olho no ENEM</h2>
+
+            <h3>Cinética Química</h3>
+            <div class="questao">
+                <p><strong>Questão 1 (ENEM 2022):</strong>Na produção de etanol a partir da biomassa, os polissacarídeos precisam ser transformados em açúcares menores, esse processo pode ocorrer em meio ácido. Qual é a função do íon H<sup>+</sup></p>
+                <p>(A) alta pressão.<br>(B) alta temperatura.<br>(C) excesso de reagentes.<br>(D) maior superfície de contato.<br>(E) elevada energia de ativação.</p>
+                <div class="destaque">
+                    <strong>Resolução — Gabarito (C):</strong> O íon H<sup>+</sup> atua como catalisador, diminuindo a energia de ativação e aumentando a velocidade da reação. Ele não é consumido durante o processo.
+                </div>
+            </div>
+
+            <div class="questao">
+                <p><strong>Questão 2 (ENEM 2020):</strong> Uma enzima chamada sacarase acelera a quebra da sacarose. Em um experimento, foram dissolvidos 171g de sacarose em 500mL de água. A concentração inicial era de 1 mol/L, e diminuía pela metade a cada 100 minutos. Qual será a concentração após 400 minutos<br>
+                1. Alimentos se conservam por mais tempo sob refrigeração.<br>
+                2. Corte dos alimentos acelera o cozimento.<br>
+                3. Bactérias produtoras de enzimas aceleram reações na preparação de iogurtes.<br>
+                Quais são os fatores nos exemplos 1, 2 e 3, respectivamente?</p>
+                <p>(A) Temperatura, superfície de contato e concentração.<br>(B) Concentração, superfície de contato e catalisadores.<br>(C) Temperatura, superfície de contato e catalisadores.<br>(D) Superfície de contato, temperatura e concentração.<br>(E) Temperatura, concentração e catalisadores.</p>
+                <div class="destaque">
+                    <strong>Resolução — Gabarito (C):</strong><br>
+                    1. Refrigeração = <strong>Temperatura</strong> (menor agitação molecular).<br>
+                    2. Corte = <strong>Superfície de contato</strong> (maior área exposta).<br>
+                    3. Enzimas = <strong>Catalisadores</strong> (reduzem a energia de ativação).
+                </div>
+            </div>
+
+            <h3>Equilíbrio Químico</h3>
+            <div class="questao">
+                <img src="https://adhanflb0.github.io/Captura%20de%20tela_2026-11-19_09-36-30.jpg" alt="Questão ENEM Equilíbrio 1">
+                <div class="destaque">
+                    <strong>Resolução — Gabarito (B):</strong> O refrigerante ácido aumenta a concentração de íons <strong>H<sup>+</sup></strong>, que reagem com as hidroxilas <strong>OH<sup>-</sup></strong> formando água. Pelo Princípio de Le Chatelier, o equilíbrio desloca-se para a <strong>direita</strong> para repor o OH<sup>-</sup>, desmineralizando o esmalte dentário.
+                </div>
+            </div>
+
+            <div class="questao">
+                <img src="https://adhanlb0.github.io/Captura%20de%20tela_2026-11-19_09-41-36.jpg" alt="Questão ENEM Equilíbrio 2">
+                <div class="destaque">
+                    <strong>Resolução — Gabarito (E):</strong> O excesso de CO<sub>2</sub> na água forma ácido carbônico (H<sub>2</sub>CO<sub>3</sub>), liberando íons <strong>H<sup>+</sup></strong>. Esses íons consomem o carbonato (CO<sub>3</sub><sup>2-</sup>) disponível no mar, dissolvendo os esqueletos calcários (CaCO<sub>3</sub>) dos corais.
+                </div>
+            </div>
+        </section>
+
+        <!-- ABA: SIMULADOR -->
+        <section id="simulador" class="secao">
+            <h2>Simulador Interativo (PhET Colorado)</h2>
+            <p>Teste o pH de diferentes soluções e observe a concentração de íons H<sub>3</sub>O<sup>+</sup> e OH<sup>-</sup>:</p>
+            <iframe class="simulador" src="https://phet.colorado.edu/sims/html/ph-scale/latest/ph-scale_all.html?locale=pt_BR" title="Simulador PhET" allowfullscreen></iframe>
+        </section>
+
+        <!-- REFERÊNCIAS -->
+        <footer>
+            <h3>Referências Bibliográficas</h3>
+            <ul>
+                <li>ATKINS, Peter; JONES, Loretta. <em>Princípios de Química: Questionando a vida moderna e o meio ambiente</em>. 5. ed. Porto Alegre: Bookman, 2012.</li>
+                <li>FELTRE, Ricardo. <em>Química: Físico-Química</em>. v. 2. 6. ed. São Paulo: Moderna, 2004.</li>
+                <li>USBERCO, João; SALVADOR, Edgard. <em>Química: Volume Único</em>. 9. ed. São Paulo: Saraiva, 2013.</li>
+                <li>PhET Interactive Simulations. <em>Escala de pH</em>. University of Colorado Boulder. Disponível em: https://phet.colorado.edu/. Acesso em: nov. 2026.</li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT CORRIGIDO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const botoes = document.querySelectorAll('.tab-btn');
+            const secoes = document.querySelectorAll('.secao');
+
+            botoes.forEach(function (botao) {
+                botao.addEventListener('click', function () {
+                    const idAlvo = botao.getAttribute('data-alvo');
+                    const secaoAlvo = document.getElementById(idAlvo);
+
+                    if (!secaoAlvo) return;
+
+                    botoes.forEach(function (b) {
+                        b.classList.remove('active');
+                    });
+
+                    secoes.forEach(function (s) {
+                        s.classList.remove('ativa');
+                    });
+
+                    botao.classList.add('active');
+                    secaoAlvo.classList.add('ativa');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
